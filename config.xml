@@ -3,13 +3,13 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.supto.naieem"
+        id        = "com.supto.roja"
         version   = "1.0.0">
 
-    <name>HCF</name>
+    <name>Roja</name>
 
     <description>
-        HCF app for selise healthCare
+        Roja app for the year 2020
     </description>
 
     <author href="https://naieem.github.io" email="naieemsupto@gmail.com">
