@@ -10,6 +10,40 @@
     <link rel="stylesheet" href="./css/material.css">
     <link rel="stylesheet" href="./css//style.css">
 </head>
+<script>
+    (function () {
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            document.addEventListener("pause", onPause, false);
+            document.addEventListener("resume", onResume, false);
+            document.addEventListener("menubutton", onMenuKeyDown, false);
+            // Add similar listeners for other events
+        }
+        function onPause() {
+            // alert("mal gesega");
+        }
+
+        function onResume() {
+            // alert("mal abar aiche");
+            // navigator.splashscreen.show();
+        }
+
+        function onMenuKeyDown() {
+            // alert("mal menu capse");
+        }
+        window.onload = function () {
+            console.log('' + (+new Date) + ': Onload fired');
+            navigator.splashscreen.hide();
+        };
+        document.onreadystatechange = function () {
+            console.log('' + (+new Date) + ': Ready state changed');
+            if (document.readyState == "complete") {
+                console.log('' + (+new Date) + ': Ready = Complete');
+                // alert("mal ready done");
+            }
+        };
+    })();
+</script>
 
 <body>
     <nav>
@@ -19,7 +53,7 @@
             </div>
         </div>
     </nav>
-    <!-- <div class="main-container" id="app">
+    <div class="main-container" id="app">
         <div class="info-container">
             <div class="card blue-grey darken-1">
                 <div class="card-content white-text">
@@ -51,9 +85,9 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 </body>
-<!-- <script src="./js/materialize.js"></script>
+<script src="./js/materialize.js"></script>
 <script src="js/vue.js"></script>
 <script>
     new Vue({
@@ -441,11 +475,9 @@
             console.log("before mount");
         },
         mounted: function () {
-            console.log("mal mounted");
-            console.log(navigator);
-            navigator.splashscreen.hide();
+            console.log("mal mounted");            
         }
     });
-</script> -->
+</script>
 
 </html>
