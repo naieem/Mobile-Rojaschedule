@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Roja Schedule 2020</title>
+    <title>২০২০ রোজার সময়সুচিতে স্বাগতম</title>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <link rel="stylesheet" href="./css/material.css">
     <link rel="stylesheet" href="./css//style.css">
@@ -45,43 +45,44 @@
     })();
 </script>
 
-<body>
+<body class=" blue-grey darken-1">
     <nav>
         <div class="nav-wrapper">
             <div class="center">
-                <span>Welcome to the schedule of Roja 2020</span>
+                <span class="text-bold">২০২০ রোজার সময়সুচিতে স্বাগতম</span>
             </div>
         </div>
     </nav>
     <div class="main-container" id="app">
-        <div class="info-container">
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <div class="row">
-                        <div class="col s4 left">
-                            <a class="waves-effect waves-light btn" v-if="currentRojaIndex"
-                                v-on:click="prev">পুর্ববর্তি</a>
-                        </div>
-                        <div class="col s4 center">
-                            <a class="waves-effect waves-light btn " v-on:click="reset">রিসেট</a>
-                        </div>
-                        <div class="right">
-                            <a class="waves-effect waves-light btn" v-if="currentRojaIndex < 29"
-                                v-on:click="next">পরবর্তি</a>
-                        </div>
+        <div class="info-container info-font white-text">
+            <div class="container">
+                <div class="row nav-container">
+                    <div class="col s4 left">
+                        <a class="waves-effect waves-light btn" v-if="currentRojaIndex" v-on:click="prev">পুর্ববর্তি</a>
                     </div>
-                    <div class="row">
+                    <div class="col s4 center">
+                        <a class="waves-effect waves-light btn " v-on:click="reset">রিসেট</a>
+                    </div>
+                    <div class="right">
+                        <a class="waves-effect waves-light btn" v-if="currentRojaIndex < 29"
+                            v-on:click="next">পরবর্তি</a>
+                    </div>
+                </div>
+                <div class="row vertically-center">
+                    <p>
                         <span class="card-title">{{number[currentRojaIndex+1]}} তম রমজান</span>
+                    </p>
+                    <p>
                         <span class="card-title">তারিখ : {{number[schedule[currentRojaIndex].date]}}
                             {{month[schedule[currentRojaIndex].month]}}</span>
-                        <p><span class="card-title">দিন : {{days[schedule[currentRojaIndex].day]}}</span></p>
-                        <p><span class="card-title">সেহেরি : {{number[schedule[currentRojaIndex].sehri_time1]}} :
-                                {{number[schedule[currentRojaIndex].sehri_time2]}}
-                                মিনিট</span></p>
-                        <p><span class="card-title">ইফতার : {{number[schedule[currentRojaIndex].iftar_time1]}} :
-                                {{number[schedule[currentRojaIndex].iftar_time2]}}
-                                মিনিট</span></p>
-                    </div>
+                    </p>
+                    <p><span class="card-title">দিন : {{days[schedule[currentRojaIndex].day]}}</span></p>
+                    <p><span class="card-title">সেহেরি : {{number[schedule[currentRojaIndex].sehri_time1]}} :
+                            {{number[schedule[currentRojaIndex].sehri_time2]}}
+                            মিনিট</span></p>
+                    <p><span class="card-title">ইফতার : {{number[schedule[currentRojaIndex].iftar_time1]}} :
+                            {{number[schedule[currentRojaIndex].iftar_time2]}}
+                            মিনিট</span></p>
                 </div>
             </div>
         </div>
@@ -475,7 +476,7 @@
             console.log("before mount");
         },
         mounted: function () {
-            console.log("mal mounted");            
+            console.log("mal mounted");
         }
     });
 </script>
