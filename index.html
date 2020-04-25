@@ -46,46 +46,76 @@
 </script>
 
 <body class=" blue-grey darken-1">
-    <nav>
-        <div class="nav-wrapper">
-            <div class="center">
-                <span class="text-bold">২০২০ রোজার সময়সুচিতে স্বাগতম</span>
-            </div>
-        </div>
-    </nav>
-    <div class="main-container" id="app">
-        <div class="info-container info-font white-text">
-            <div class="container position-relative">
-                <div class="row nav-container">
-                    <div class="col s4 left">
-                        <a class="waves-effect waves-light btn" v-if="currentRojaIndex" v-on:click="prev">পুর্ববর্তি</a>
-                    </div>
-                    <div class="col s4 center">
-                        <a class="waves-effect waves-light btn " v-on:click="reset">রিসেট</a>
-                    </div>
-                    <div class="right">
-                        <a class="waves-effect waves-light btn" v-if="currentRojaIndex < 29"
-                            v-on:click="next">পরবর্তি</a>
-                    </div>
-                </div>
-                <div class="row vertically-center">
-                    <p>
-                        <span class="card-title">{{number[currentRojaIndex+1]}} তম রমজান</span>
-                    </p>
-                    <p>
-                        <span class="card-title">তারিখ : {{number[schedule[currentRojaIndex].date]}}
-                            {{month[schedule[currentRojaIndex].month]}}</span>
-                    </p>
-                    <p><span class="card-title">দিন : {{days[schedule[currentRojaIndex].day]}}</span></p>
-                    <p><span class="card-title">সেহেরি : {{number[schedule[currentRojaIndex].sehri_time1]}} :
-                            {{number[schedule[currentRojaIndex].sehri_time2]}}
-                            মিনিট</span></p>
-                    <p><span class="card-title">ইফতার : {{number[schedule[currentRojaIndex].iftar_time1]}} :
-                            {{number[schedule[currentRojaIndex].iftar_time2]}}
-                            মিনিট</span></p>
+    <div id="app">
+        <nav>
+            <div class="nav-wrapper">
+                <div class="center">
+                    <span class="text-bold">২০২০ রোজার সময়সুচিতে স্বাগতম</span>
                 </div>
             </div>
+        </nav>
+        <div class="main-container">
+            <div class="info-container info-font white-text">
+                <div class="container position-relative">
+                    <div class="row nav-container">
+                        <div class="col s4 left">
+                            <a class="waves-effect waves-light btn" v-if="currentRojaIndex"
+                                v-on:click="prev">পুর্ববর্তি</a>
+                        </div>
+                        <div class="col s4 center">
+                            <a class="waves-effect waves-light btn " v-on:click="reset">রিসেট</a>
+                        </div>
+                        <div class="right">
+                            <a class="waves-effect waves-light btn" v-if="currentRojaIndex < 29"
+                                v-on:click="next">পরবর্তি</a>
+                        </div>
+                    </div>
+                    <div class="row vertically-center">
+                        <p>
+                            <span class="card-title">{{number[currentRojaIndex+1]}} তম রমজান</span>
+                        </p>
+                        <p>
+                            <span class="card-title">তারিখ : {{number[schedule[currentRojaIndex].date]}}
+                                {{month[schedule[currentRojaIndex].month]}}</span>
+                        </p>
+                        <p><span class="card-title">দিন : {{days[schedule[currentRojaIndex].day]}}</span></p>
+                        <p><span class="card-title">সেহেরি : {{number[schedule[currentRojaIndex].sehri_time1]}} :
+                                {{number[schedule[currentRojaIndex].sehri_time2]}}
+                                মিনিট</span></p>
+                        <p><span class="card-title">ইফতার : {{number[schedule[currentRojaIndex].iftar_time1]}} :
+                                {{number[schedule[currentRojaIndex].iftar_time2]}}
+                                মিনিট</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
+        <nav class="mobile-bottom-nav">
+            <div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
+                <div class="mobile-bottom-nav__item-content">
+                    <!-- <i class="material-icons">home</i> -->
+                    one
+                </div>
+            </div>
+            <div class="mobile-bottom-nav__item">
+                <div class="mobile-bottom-nav__item-content">
+                    <!-- <i class="material-icons">mail</i> -->
+                    two
+                </div>
+            </div>
+            <div class="mobile-bottom-nav__item">
+                <div class="mobile-bottom-nav__item-content">
+                    <!-- <i class="material-icons">person</i> -->
+                    three
+                </div>
+            </div>
+
+            <div class="mobile-bottom-nav__item">
+                <div class="mobile-bottom-nav__item-content">
+                    <!-- <i class="material-icons">phone</i> -->
+                    four
+                </div>
+            </div>
+        </nav>
     </div>
 </body>
 <script src="./js/materialize.js"></script>
