@@ -3,6 +3,7 @@ body{
 }
 .main-container{
     position: relative;
+    width: 100%;
 }
 .info-container{
     /* position: absolute;
