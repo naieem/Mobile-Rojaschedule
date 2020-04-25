@@ -46,7 +46,7 @@
             </div>
         </div>
         <!-- previous next button container -->
-        <div style="position: absolute;top: 50px;width: 100%;">
+        <div class="data-navigator">
             <div class="row nav-container">
                 <div class="col s4 left">
                     <a class="waves-effect waves-light btn" v-if="currentRojaIndex" v-on:click="prev">পুর্ববর্তি</a>
@@ -54,7 +54,7 @@
                 <div class="col s4 center">
                     <a class="waves-effect waves-light btn " v-on:click="reset">রিসেট</a>
                 </div>
-                <div class="right">
+                <div class="col right">
                     <a class="waves-effect waves-light btn" v-if="currentRojaIndex < 29" v-on:click="next">পরবর্তি</a>
                 </div>
             </div>
@@ -83,8 +83,9 @@
     </div>
 </body>
 <script src="./js/materialize.js"></script>
-<script src="js/vue.js"></script>
-<script src="js/project-js.js"></script>
+<script src="./js/vue.js"></script>
+<script src="./js//vue-router.js"></script>
+<script src="./js/project-js.js"></script>
 <script>
 </script>
 
