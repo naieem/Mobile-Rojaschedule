@@ -56,6 +56,7 @@
         mounted: function () {
             // console.log(router.currentRoute);
             this.activeRoute = router.currentRoute.name;
+            router.push('/');
         },
         updated() {
             // console.log(router.currentRoute);
