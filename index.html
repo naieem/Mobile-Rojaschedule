@@ -26,19 +26,26 @@
         <div class="main-container">
             <div class="info-container center info-font white-text">
                 <div class="container position-relative">
-                    <router-view></router-view>
+                    <!-- <keep-alive> -->
+                    <home-component v-if="activeRoute == 'home'"></home-component>
+                    <!-- </keep-alive> -->
+                    <keep-alive>
+                        <rules-component v-if="activeRoute == 'rules'"></rules-component>
+                    </keep-alive>
                 </div>
             </div>
         </div>
         <!-- bottom navigarion bar -->
         <nav class="mobile-bottom-nav">
-            <div class="mobile-bottom-nav__item" v-bind:class="{ 'mobile-bottom-nav__item--active': (activeRoute == 'home') }">
-                <div class="mobile-bottom-nav__item-content" v-on:click="changeRoute('/')">
+            <div class="mobile-bottom-nav__item"
+                v-bind:class="{ 'mobile-bottom-nav__item--active': (activeRoute == 'home') }">
+                <div class="mobile-bottom-nav__item-content" v-on:click="changeRoute('home')">
                     <!-- <i class="material-icons">home</i>  -->
-                    হোম
+                    <span>হোম</span>
                 </div>
             </div>
-            <div class="mobile-bottom-nav__item" v-bind:class="{ 'mobile-bottom-nav__item--active': (activeRoute == 'rules') }">
+            <div class="mobile-bottom-nav__item"
+                v-bind:class="{ 'mobile-bottom-nav__item--active': (activeRoute == 'rules') }">
                 <div class="mobile-bottom-nav__item-content" v-on:click="changeRoute('rules')">
                     <!-- <i class="material-icons">mail</i>  -->
                     নিয়ম
@@ -116,9 +123,7 @@
         </div>
     </script>
 </body>
-<script src="./js/materialize.js"></script>
 <script src="./js/vue.js"></script>
-<script src="./js//vue-router.js"></script>
 <script src="./js/components/home.component.js"></script>
 <script src="./js/components/rules.component.js"></script>
 <script src="./js/project-js.js"></script>
