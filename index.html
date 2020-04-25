@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport"
         content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <title>২০২০ রোজার সময়সুচিতে স্বাগতম</title>
     <script type=" text/javascript" charset="utf-8" src="cordova.js"></script>
-    <link rel="stylesheet" href="./css/material.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/material.css" />
+    <link rel="stylesheet" href="./css/style.css" />
 </head>
 
-<body class=" blue-grey darken-1">
+<body class="blue-grey darken-1">
     <div id="app">
         <!-- top navigation bar -->
         <nav>
@@ -26,49 +26,20 @@
         <div class="main-container">
             <div class="info-container center info-font white-text">
                 <div class="container position-relative">
-                    <div class="row vertically-center">
-                        <p>
-                            <span class="card-title">{{number[currentRojaIndex+1]}} তম রমজান</span>
-                        </p>
-                        <p>
-                            <span class="card-title">তারিখ : {{number[schedule[currentRojaIndex].date]}}
-                                {{month[schedule[currentRojaIndex].month]}}</span>
-                        </p>
-                        <p><span class="card-title">দিন : {{days[schedule[currentRojaIndex].day]}}</span></p>
-                        <p><span class="card-title">সেহেরি : {{number[schedule[currentRojaIndex].sehri_time1]}} :
-                                {{number[schedule[currentRojaIndex].sehri_time2]}}
-                                মিনিট</span></p>
-                        <p><span class="card-title">ইফতার : {{number[schedule[currentRojaIndex].iftar_time1]}} :
-                                {{number[schedule[currentRojaIndex].iftar_time2]}}
-                                মিনিট</span></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- previous next button container -->
-        <div class="data-navigator">
-            <div class="row nav-container">
-                <div class="col s4 left">
-                    <a class="waves-effect waves-light btn" v-if="currentRojaIndex" v-on:click="prev">পুর্ববর্তি</a>
-                </div>
-                <div class="col s4 center">
-                    <a class="waves-effect waves-light btn " v-on:click="reset">রিসেট</a>
-                </div>
-                <div class="col right">
-                    <a class="waves-effect waves-light btn" v-if="currentRojaIndex < 29" v-on:click="next">পরবর্তি</a>
+                    <router-view></router-view>
                 </div>
             </div>
         </div>
         <!-- bottom navigarion bar -->
         <nav class="mobile-bottom-nav">
-            <div class="mobile-bottom-nav__item mobile-bottom-nav__item--active">
-                <div class="mobile-bottom-nav__item-content">
+            <div class="mobile-bottom-nav__item" v-bind:class="{ 'mobile-bottom-nav__item--active': (activeRoute == 'home') }">
+                <div class="mobile-bottom-nav__item-content" v-on:click="changeRoute('/')">
                     <!-- <i class="material-icons">home</i>  -->
                     হোম
                 </div>
             </div>
-            <div class="mobile-bottom-nav__item">
-                <div class="mobile-bottom-nav__item-content">
+            <div class="mobile-bottom-nav__item" v-bind:class="{ 'mobile-bottom-nav__item--active': (activeRoute == 'rules') }">
+                <div class="mobile-bottom-nav__item-content" v-on:click="changeRoute('rules')">
                     <!-- <i class="material-icons">mail</i>  -->
                     নিয়ম
                 </div>
@@ -81,12 +52,76 @@
             </div>
         </nav>
     </div>
+    <!-- Home template -->
+    <script type="text/x-template" id="home-template">
+        <div>
+            <!-- previous next button container -->
+            <div class="data-navigator">
+                <div class="row nav-container">
+                    <div class="col s4 left">
+                        <a class="waves-effect waves-light btn" v-if="currentRojaIndex"
+                            v-on:click="prev">পুর্ববর্তি</a>
+                    </div>
+                    <div class="col s4 center">
+                        <a class="waves-effect waves-light btn " v-on:click="reset">রিসেট</a>
+                    </div>
+                    <div class="col right">
+                        <a class="waves-effect waves-light btn" v-if="currentRojaIndex < 29"
+                            v-on:click="next">পরবর্তি</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row vertically-center">
+                <div>
+                    <p>
+                        <span class="card-title">{{number[currentRojaIndex+1]}} তম রমজান</span>
+                    </p>
+                    <p>
+                        <span class="card-title">তারিখ : {{number[schedule[currentRojaIndex].date]}}
+                            {{month[schedule[currentRojaIndex].month]}}</span>
+                    </p>
+                    <p><span class="card-title">দিন : {{days[schedule[currentRojaIndex].day]}}</span></p>
+                    <p><span class="card-title">সেহেরি : {{number[schedule[currentRojaIndex].sehri_time1]}}
+                            :
+                            {{number[schedule[currentRojaIndex].sehri_time2]}}
+                            মিনিট</span></p>
+                    <p><span class="card-title">ইফতার : {{number[schedule[currentRojaIndex].iftar_time1]}} :
+                            {{number[schedule[currentRojaIndex].iftar_time2]}}
+                            মিনিট</span></p>
+                </div>
+            </div>
+        </div>
+    </script>
+    <!-- Rules template -->
+    <script type="text/x-template" id="rules-template">
+        <div>
+            <div class="row vertically-center">
+                <p>The Regularly of Tarabi Namaz-তারাবিহ নামাজের নিয়ত</p>
+                <p>نويت ان اصلى لله تعالى ركعتى صلوة التراويح سنة رسول الله تعالى متوجها الى جهة الكعبة الشريفة >الله اكبر.</p>
+                
+                <p>বাংলা উচ্চারণ: নাওয়াইতু আন উসালি­য়া ল্লিলাহি তাআ’লা, রাকাআ’তাই সালাতিত তারাবিহ সুন্নাতু রাসুল্লিলাহি তাআ’লা। মুতাওয়াযজ্জিহান ইলা যিহাতিল কা’বাতিশ শারিফাতি, আল্লাহু আকবার। তবে যদি তারাবি জামাআ’তের সহিত নামাজ হয় তবে- ইক্বতাদাইতু বি হাজাল ইমাম বলতে হবে।</p>
+                
+                <p>Meaning: I am devoted to praying two rak’ahs, Tarabih Sunnat, and Allah Almighty.</p>
+                <hr>
+                <p>
+                    Dua After Complete Four rak’ats of Tarabeeh prayers in a row-তারাবিহ নামাজের চার রাকাআ’ত পরপর দোয়া:
+                </p>
+                <p>
+                    سبحان ذى الملك والملكوت سبحان ذى العزة والعظمة والهيبة والقدرة والكبرياء والجبروت . سبحان الملك الحى الذى لاينام ولا يموت ابدا ابدا سبوح قدوس ربنا ورب الملئكة والروح.
+                </p>
+                <p>
+                    “সুব্হানাযিল মুলকি ওয়াল মালাকুতি, সুব্হানাযিল ইয্যাতি, ওয়াল আয্মাতি, ওয়াল হাইবাতি, ওয়াল কুদরাতি, ওয়াল কিবরিয়াই, ওয়াল যাবারুত। সুব্হানাল মালিকিল হাইয়্যিল্লাজি লা-ইয়াানামু ওয়ালা ইয়ামুতু আবাদান আবাদা। সুব্বুহুন কুদ্দুছুন রাব্বুনা ওয়া রাব্বুল মালাইকাতি ওয়ার রূহ।”
+                </p>
+            </div>
+        </div>
+    </script>
 </body>
 <script src="./js/materialize.js"></script>
 <script src="./js/vue.js"></script>
 <script src="./js//vue-router.js"></script>
+<script src="./js/components/home.component.js"></script>
+<script src="./js/components/rules.component.js"></script>
 <script src="./js/project-js.js"></script>
-<script>
-</script>
+<script></script>
 
 </html>
