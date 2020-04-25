@@ -49,7 +49,7 @@
         },
         methods: {
             changeRoute: function (name) {
-                // console.log(router);
+                alert(name);
                 router.push(name);
             }
         },
