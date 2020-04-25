@@ -7,7 +7,7 @@ body {
 .main-container {
   position: relative;
   width: 100%;
-  padding: 20px 0;
+  padding: 20px 0 30px;
 }
 #app {
   position: relative;
@@ -62,5 +62,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-/* previous next navigator */
-
+/* rules component style */
+.rules-container h3{
+    font-size: 26px;
+}
