@@ -19,6 +19,7 @@ body{
     font-size: 24px;
 }
 .nav-container{
+    -webkit-backface-visibility: hidden;
     padding-top: 30px;
 }
 .height-inherit{
@@ -26,6 +27,7 @@ body{
 }
 .vertically-center{
     text-align:center;
+    -webkit-backface-visibility: hidden;
 }
 .position-relative{
     position: relative;
@@ -44,7 +46,8 @@ body{
 	height: 50px;
 
 	box-shadow: 0 -2px 5px -2px #333;
-	background-color: #fff;
+    background-color: #fff;
+    -webkit-backface-visibility: hidden;
 }
 
 .mobile-bottom-nav__item {
@@ -55,6 +58,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    -webkit-backface-visibility: hidden;
 }
 .mobile-bottom-nav__item--active {
     color: red;
