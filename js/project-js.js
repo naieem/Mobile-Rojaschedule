@@ -34,36 +34,34 @@
 })();
 
 // vue initializer
-(function () {
-    const router = new VueRouter({
-        routes: [
-            // dynamic segments start with a colon
-            { name: 'home', path: '/', component: homeComponent },
-            { name: 'rules', path: '/rules', component: rulesComponent }
-        ]
-    })
-    new Vue({
-        el: '#app',
-        data:{
-            activeRoute:''
-        },
-        methods: {
-            changeRoute: function (name) {
-                alert(name);
-                router.push(name);
-            }
-        },
-        mounted: function () {
-            // console.log(router.currentRoute);
-            this.activeRoute = router.currentRoute.name;
-            alert(this.activeRoute);
-            router.push('/');
-        },
-        updated() {
-            // console.log(router.currentRoute);
-            this.activeRoute = router.currentRoute.name;
-            alert(this.activeRoute);
-        },
-        router
-    });
-})(window);
+var router = new VueRouter({
+    routes: [
+        // dynamic segments start with a colon
+        { name: 'home', path: '/', component: homeComponent },
+        { name: 'rules', path: '/rules', component: rulesComponent }
+    ]
+})
+new Vue({
+    el: '#app',
+    data: {
+        activeRoute: ''
+    },
+    methods: {
+        changeRoute: function (name) {
+            alert(name);
+            router.push(name);
+        }
+    },
+    mounted: function () {
+        // console.log(router.currentRoute);
+        this.activeRoute = router.currentRoute.name;
+        alert(this.activeRoute);
+        router.push('/');
+    },
+    updated() {
+        // console.log(router.currentRoute);
+        this.activeRoute = router.currentRoute.name;
+        alert(this.activeRoute);
+    },
+    router
+});
