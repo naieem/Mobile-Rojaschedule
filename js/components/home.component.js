@@ -1,4 +1,4 @@
-window.homeComponent = Vue.component('button-counter', {
+var homeComponent = Vue.component('button-counter', {
     data: function () {
         return {
             currentRojaIndex: 0,

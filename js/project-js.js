@@ -38,8 +38,8 @@
     const router = new VueRouter({
         routes: [
             // dynamic segments start with a colon
-            { name: 'home', path: '/', component: window.homeComponent },
-            { name: 'rules', path: '/rules', component: window.rulesComponent }
+            { name: 'home', path: '/', component: homeComponent },
+            { name: 'rules', path: '/rules', component: rulesComponent }
         ]
     })
     new Vue({
@@ -56,11 +56,13 @@
         mounted: function () {
             // console.log(router.currentRoute);
             this.activeRoute = router.currentRoute.name;
+            alert(this.activeRoute);
             router.push('/');
         },
         updated() {
             // console.log(router.currentRoute);
             this.activeRoute = router.currentRoute.name;
+            alert(this.activeRoute);
         },
         router
     });

@@ -1,4 +1,4 @@
-window.rulesComponent = Vue.component('button-counter', {
+var rulesComponent = Vue.component('button-counter', {
     data: function () {
         return {
         }
