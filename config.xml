@@ -42,7 +42,7 @@
     <preference name="ErrorUrl" value="file:///android_asset/www/error.html" />
     <preference name="KeepRunning" value="false"/>
     <preference name="LoadUrlTimeoutValue" value="60000"/>
-    <!-- <preference name="android-minSdkVersion" value="28" /> -->
+    <preference name="android-minSdkVersion" value="28" />
     <!--
         Define a specific version of PhoneGap to build into your app.
         <preference name="phonegap-version"       value="3.5.0" />
