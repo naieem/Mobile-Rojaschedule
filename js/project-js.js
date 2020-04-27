@@ -39,23 +39,26 @@
         el: '#app',
         data: {
             activeRoute: 'home',
-            isSideNavOpen:false
+            isSideNavOpen: false
         },
         methods: {
             changeRoute: function (name) {
-                // console.log(router);
+                console.log(name);
                 // router.push(name);
+                this.activeRoute = name;
+            },
+            changeRouteTest: function (name) {
                 this.activeRoute = name;
             },
             openSideNav: function () {
                 document.getElementById("mySidenav").style.width = "250px";
                 document.getElementById("app-intro").style.display = "none";
-                this.isSideNavOpen=true;
+                this.isSideNavOpen = true;
             },
             closeSideNav: function () {
                 document.getElementById("mySidenav").style.width = "0";
                 document.getElementById("app-intro").style.display = "block";
-                this.isSideNavOpen=false;
+                this.isSideNavOpen = false;
             }
         }
         // mounted: function () {

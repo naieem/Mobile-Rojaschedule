@@ -10,7 +10,7 @@ body {
 .main-container {
   position: relative;
   width: 100%;
-  padding: 20px 0 30px;
+  padding: 0px 0 30px;
 }
 #app {
   position: relative;

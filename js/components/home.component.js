@@ -1,4 +1,4 @@
-var homeComponent = Vue.component('home-component', {
+Vue.component('home-component', {
     data: function () {
         return {
             currentRojaIndex: 0,
