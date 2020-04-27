@@ -17,12 +17,11 @@
         <!-- top navigation bar -->
         <nav>
             <div class="nav-wrapper">
-                <div class="right">
+                <div class="right" id="app-intro">
                     <span class="text-bold">২০২০ রোজার সময়সুচিতে স্বাগতম</span>
                 </div>
                 <div class="left">
-                    <span style="font-size:30px;cursor:pointer" v-on:click="openSideNav()" v-if="!isSideNavOpen">&#9776;</span>
-                    <span style="font-size:30px;cursor:pointer" v-on:click="closeSideNav()" v-if="isSideNavOpen">&times;</span>
+                    <span class="text-menu" v-on:click="openSideNav()">&#9776;</span>
                 </div>
             </div>
         </nav>
@@ -30,12 +29,17 @@
         <div class="main-container">
             <div class="info-container center info-font white-text">
                 <div class="container position-relative">
-                    <!-- <keep-alive> -->
+                    <!-- home component -->
                     <home-component v-if="activeRoute == 'home'"></home-component>
+                    <!-- taraih component -->
+                    <keep-alive>
+                        <tarabih-component v-if="activeRoute == 'tarabih'"></tarabih-component>
+                    </keep-alive>
                     <!-- </keep-alive> -->
                     <keep-alive>
-                        <rules-component v-if="activeRoute == 'rules'"></rules-component>
+                        <allduah-component v-if="activeRoute == 'allduah'"></allduah-component>
                     </keep-alive>
+
                 </div>
             </div>
         </div>
@@ -44,27 +48,25 @@
             <div class="mobile-bottom-nav__item"
                 v-bind:class="{ 'mobile-bottom-nav__item--active': (activeRoute == 'home') }">
                 <div class="mobile-bottom-nav__item-content" v-on:click="changeRoute('home')">
-                    <!-- <span>&#9776;</span> -->
                     <span>হোম</span>
                 </div>
             </div>
             <div class="mobile-bottom-nav__item"
-                v-bind:class="{ 'mobile-bottom-nav__item--active': (activeRoute == 'rules') }">
-                <div class="mobile-bottom-nav__item-content" v-on:click="changeRoute('rules')">
-                    <!-- <i class="material-icons">mail</i>  -->
-                    নিয়ম
+                v-bind:class="{ 'mobile-bottom-nav__item--active': (activeRoute == 'allduah') }">
+                <div class="mobile-bottom-nav__item-content" v-on:click="changeRoute('allduah')">
+                    <!-- নিয়ম -->
+                    দোয়াসমুহ
                 </div>
             </div>
-            <div class="mobile-bottom-nav__item">
+            <!-- <div class="mobile-bottom-nav__item">
                 <div class="mobile-bottom-nav__item-content">
-                    <!-- <i class="material-icons">person</i>  -->
                     আমরা
                 </div>
-            </div>
+            </div> -->
         </nav>
         <!-- sidenav  menu -->
         <div id="mySidenav" class="sidenav-custom">
-            <!-- <a href="javascript:void(0)" class="closebtn" v-on:click="closeSideNav()">&times;</a> -->
+            <a href="javascript:void(0)" class="closebtn text-menu" v-on:click="closeSideNav()">&times;</a>
             <a href="#">About</a>
             <a href="#">Services</a>
             <a href="#">Clients</a>
@@ -114,8 +116,8 @@
             </div>
         </div>
     </script>
-    <!-- Rules template -->
-    <script type="text/x-template" id="rules-template">
+    <!-- Tarabih template -->
+    <script type="text/x-template" id="tarabih-template">
         <div class="rules-container">
             <div class="row vertically-center">
                 <h3>তারাবিহ নামাজের নিয়ত</h3>
@@ -134,10 +136,25 @@
             </div>
         </div>
     </script>
+    <!-- All Duah template -->
+    <script type="text/x-template" id="all-duah-template">
+        <div class="all-doah-container">
+            <div class="single-doah-container">
+                কালেমা
+            </div>
+            <div class="single-doah-container">
+                আয়াতুল কুরসি
+            </div>
+            <div class="single-doah-container">
+                অন্যান্য
+            </div>
+        </div>
+    </script>
 </body>
 <script src="./js/vue.js"></script>
 <script src="./js/components/home.component.js"></script>
-<script src="./js/components/rules.component.js"></script>
+<script src="./js/components/tarabih.component.js"></script>
+<script src="./js/components/doas.component.js"></script>
 <script src="./js/project-js.js"></script>
 <script></script>
 
