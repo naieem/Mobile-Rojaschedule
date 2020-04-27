@@ -35,23 +35,27 @@
 
 // vue initializer
 (function () {
-    // const router = new VueRouter({
-    //     routes: [
-    //         // dynamic segments start with a colon
-    //         { name: 'home', path: '/', component: homeComponent },
-    //         { name: 'rules', path: '/rules', component: rulesComponent }
-    //     ]
-    // })
     new Vue({
         el: '#app',
         data: {
-            activeRoute: 'home'
+            activeRoute: 'home',
+            isSideNavOpen:false
         },
         methods: {
             changeRoute: function (name) {
                 // console.log(router);
                 // router.push(name);
                 this.activeRoute = name;
+            },
+            openSideNav: function () {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("app").style.marginLeft = "250px";
+                this.isSideNavOpen=true;
+            },
+            closeSideNav: function () {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("app").style.marginLeft = "0";
+                this.isSideNavOpen=false;
             }
         }
         // mounted: function () {
