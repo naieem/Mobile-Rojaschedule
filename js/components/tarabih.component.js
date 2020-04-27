@@ -1,4 +1,4 @@
-var rulesComponent = Vue.component('tarabih-component', {
+Vue.component('tarabih-component', {
     data: function () {
         return {
         }
