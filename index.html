@@ -17,8 +17,12 @@
         <!-- top navigation bar -->
         <nav>
             <div class="nav-wrapper">
-                <div class="center">
+                <div class="right">
                     <span class="text-bold">২০২০ রোজার সময়সুচিতে স্বাগতম</span>
+                </div>
+                <div class="left">
+                    <span style="font-size:30px;cursor:pointer" v-on:click="openSideNav()" v-if="!isSideNavOpen">&#9776;</span>
+                    <span style="font-size:30px;cursor:pointer" v-on:click="closeSideNav()" v-if="isSideNavOpen">&times;</span>
                 </div>
             </div>
         </nav>
@@ -40,7 +44,7 @@
             <div class="mobile-bottom-nav__item"
                 v-bind:class="{ 'mobile-bottom-nav__item--active': (activeRoute == 'home') }">
                 <div class="mobile-bottom-nav__item-content" v-on:click="changeRoute('home')">
-                    <!-- <i class="material-icons">home</i>  -->
+                    <!-- <span>&#9776;</span> -->
                     <span>হোম</span>
                 </div>
             </div>
@@ -58,6 +62,14 @@
                 </div>
             </div>
         </nav>
+        <!-- sidenav  menu -->
+        <div id="mySidenav" class="sidenav-custom">
+            <!-- <a href="javascript:void(0)" class="closebtn" v-on:click="closeSideNav()">&times;</a> -->
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
     </div>
     <!-- Home template -->
     <script type="text/x-template" id="home-template">
